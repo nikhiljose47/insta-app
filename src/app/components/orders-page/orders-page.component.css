@@ -1,0 +1,17 @@
+.order-tile {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .not-logged-in {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .not-logged-in button {
+    margin-top: 10px;
+  }
+  

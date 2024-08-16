@@ -1,0 +1,37 @@
+
+
+  <mat-horizontal-stepper>
+    <mat-step [completed]="1<= currentStep">
+      <ng-template matStepLabel>
+        <div class="step-content">
+          <mat-icon>shopping_cart</mat-icon>
+          <span>Your Basket</span>
+        </div>
+      </ng-template>
+    </mat-step>
+    <mat-step [completed]="2<= currentStep">
+      <ng-template matStepLabel>
+        <div class="step-content">
+          <span class="step-number">1</span>
+          <span>Delivery & Payment</span>
+        </div>
+      </ng-template>
+    </mat-step>
+    <mat-step [completed]="3<= currentStep">
+      <ng-template matStepLabel>
+        <div class="step-content">
+          <span class="step-number">2</span>
+          <span>Review & Confirm</span>
+        </div>
+      </ng-template>
+    </mat-step>
+    <mat-step [completed]="4<= currentStep">
+      <ng-template matStepLabel>
+        <div class="step-content">
+          <span class="step-number">3</span>
+          <span>All Done!</span>
+        </div>
+      </ng-template>
+    </mat-step>
+  </mat-horizontal-stepper>
+  

@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+  }
+  
+  .left-side {
+    flex: 0 0 40%;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .right-side {
+    flex: 1 1 60%;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-end;
+    float: right;
+  }
+  
+  .left-side img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .right-side .card {
+    flex: 1 1 calc(50% - 10px); /* Two cards per row with a 10px gap */
+    padding: 20px;
+    background-color: #e0e0e0;
+    text-align: center;
+  }
+  

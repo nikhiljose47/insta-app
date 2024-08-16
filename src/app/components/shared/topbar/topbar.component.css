@@ -1,0 +1,26 @@
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+  height: 40px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+a[mat-button] {
+  color: #333;
+  font-weight: bold;
+  text-transform: none;
+}
+
+a[mat-button]:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}

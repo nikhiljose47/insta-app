@@ -1,0 +1,22 @@
+<div>
+    <app-progresstracker [currentStep]="currentStep"></app-progresstracker>
+    <div [ngSwitch]="currentStep">
+      <div class="container">
+        <div class="left-side">
+          <img src="assets/phone.webp" alt="Left Side Image" />
+        </div>
+        <div class="right-side">
+          <assembler-content *ngSwitchCase="1" [assemblerStep]="currentStep"></assembler-content>
+          <assembler-content *ngSwitchCase="2" [assemblerStep]="currentStep"></assembler-content>
+          <assembler-food-adder  *ngSwitchCase="3" [assemblerStep]="currentStep"></assembler-food-adder>    
+          </div>
+      </div>
+      
+
+    </div>
+
+    <div class="navigation-buttons">
+      <button (click)="prevStep()" [disabled]="currentStep === 1">Back</button>
+      <button (click)="nextStep()" [disabled]="currentStep === 7">Next</button>
+    </div>
+  </div>  

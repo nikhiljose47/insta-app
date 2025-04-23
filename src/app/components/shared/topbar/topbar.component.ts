@@ -1,25 +1,34 @@
 import { Component, OnInit } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import {MatButtonModule} from '@angular/material/button';
-import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { Observable } from 'rxjs';
 import { SharedPreferenceService } from '../../../services/shared-preference.service';
+import { Store } from '@ngrx/store';
+import { CommonModule } from '@angular/common';
+import { FirebaseDataService } from '../../../services/firebase-data.service';
+import { signIn, signOut } from '../../../actions/auth.actions';
+import { selectIsSignedIn } from '../../../selector';
+import { AuthState } from '../../../reducers/auth.reducer';
 
 
 
 @Component({
   selector: 'topbar-nav',
-  imports: [MatIconModule, MatToolbarModule, MatButtonModule, RouterLink, RouterLinkActive ],
+  imports: [RouterLink, RouterLinkActive, CommonModule ],
   standalone: true,
   templateUrl: './topbar.component.html',
   styleUrls: ['./topbar.component.css']
 })
 export class TopBarComponent implements OnInit {
   preference$: Observable<string>=new Observable<string>();
+  isSignedIn: boolean = false
+  test: any
+  val: Observable<boolean> = new Observable<boolean>();
 
-  isSignedIn: string = ''
-  constructor(private sharedPreferenceService: SharedPreferenceService) {}
+  constructor(private store: Store<{ auth: AuthState }>, private fireService: FirebaseDataService) {
+    this.store.select(selectIsSignedIn).subscribe((val)=>{
+      this.isSignedIn= val;
+     });
+  }
 
   ngOnInit(): void { 
     // this.sharedPreferenceService.setPreference('1');
@@ -35,9 +44,21 @@ export class TopBarComponent implements OnInit {
   //   this.router.navigate(['/app-checkout']);
   // }
 
-  // onHomeClick(e:Event){
-  //   this.router.navigate(['/home']);
-  // }
+  onTestClick(e:Event){
+    console.log("came test btn")
+
+    console.log("isSignedIn", this.isSignedIn )
+
+    
+    this.store.dispatch(signOut())
+
+   this.store.select(selectIsSignedIn).subscribe((v)=>{
+    console.log("isSignedIn after", v);
+  });
+
+
+
+  }
   
   // onOrdersClick(e:Event){
   //   this.router.navigate(['/orders-page']);

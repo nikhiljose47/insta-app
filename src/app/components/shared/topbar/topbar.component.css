@@ -1,26 +1,27 @@
-mat-toolbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #fff;
-  color: #333;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.navbar {
+  padding: 10px 20px;
 }
 
 .logo img {
   height: 40px;
 }
 
-.spacer {
-  flex: 1 1 auto;
+.navbar-nav .nav-item .icon {
+  font-size: 20px;
+  display: none;
 }
 
-a[mat-button] {
-  color: #333;
-  font-weight: bold;
-  text-transform: none;
+.navbar-nav .nav-item .nav-text {
+  display: inline-block;
 }
 
-a[mat-button]:hover {
-  background-color: rgba(0, 0, 0, 0.04);
+/* Media Query for Small Screens */
+@media (max-width: 768px) {
+  .nav-text {
+    display: none;
+  }
+
+  .navbar-nav .nav-item .icon {
+    display: inline-block;
+  }
 }

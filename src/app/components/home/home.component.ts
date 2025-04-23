@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatCardModule } from '@angular/material/card';
 import { Router } from '@angular/router';
 import { SharedPreferenceService } from '../../services/shared-preference.service';
 
@@ -7,7 +6,7 @@ import { SharedPreferenceService } from '../../services/shared-preference.servic
 @Component({
   selector: 'home',
   standalone: true,
-  imports: [MatCardModule],
+  imports: [],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

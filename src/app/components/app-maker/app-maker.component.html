@@ -1,22 +1,29 @@
-<div>
+<div class="container min-vh-100">
+  <!-- Progress Tracker -->
+   
+
+  <!-- Switch Case Content -->
+  <div [ngSwitch]="currentStep" class="row">
     <app-progresstracker [currentStep]="currentStep"></app-progresstracker>
-    <div [ngSwitch]="currentStep">
-      <div class="container">
-        <div class="left-side">
-          <img src="assets/phone.webp" alt="Left Side Image" />
-        </div>
-        <div class="right-side">
-          <assembler-content *ngSwitchCase="1" [assemblerStep]="currentStep"></assembler-content>
-          <assembler-content *ngSwitchCase="2" [assemblerStep]="currentStep"></assembler-content>
-          <assembler-food-adder  *ngSwitchCase="3" [assemblerStep]="currentStep"></assembler-food-adder>    
-          </div>
-      </div>
-      
 
+
+    <!-- Left Side with Image -->
+    <div class="col-md-6 text-center my-4">
+      <img src="assets/phone.webp" alt="Left Side Image" class="img-fluid" />
     </div>
 
-    <div class="navigation-buttons">
-      <button (click)="prevStep()" [disabled]="currentStep === 1">Back</button>
-      <button (click)="nextStep()" [disabled]="currentStep === 7">Next</button>
+    <!-- Right Side with Dynamic Content -->
+    <div class="col-md-6 my-4">
+      <app-maker-unit *ngSwitchCase="1" [submitCallback]="submitCallback" [assemblerStep]="currentStep" (data)="receiveData($event)"></app-maker-unit>
+      <app-maker-unit *ngSwitchCase="2" [submitCallback]="submitCallback" [assemblerStep]="currentStep" (data)="receiveData($event)"></app-maker-unit>
+      <app-maker-unit *ngSwitchCase="3" [submitCallback]="submitCallback" [assemblerStep]="currentStep" (data)="receiveData($event)"></app-maker-unit>
     </div>
-  </div>  
+      <!-- Navigation Buttons -->
+
+    <div class="col-12 text-center my-4">
+      <button (click)="prevStep()" class="btn btn-secondary" [disabled]="currentStep === 1">Back</button>
+      <button (click)="nextStep()" class="btn btn-primary" [disabled]="currentStep === 7">Next</button>
+    </div>
+
+  </div>
+</div>

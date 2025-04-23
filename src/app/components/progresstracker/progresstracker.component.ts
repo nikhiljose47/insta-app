@@ -1,13 +1,10 @@
 import { NgFor } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { MatStepperModule } from '@angular/material/stepper';
-import { MatIconModule } from '@angular/material/icon';
-
 
 @Component({
   selector: 'app-progresstracker',
   standalone: true,
-  imports: [NgFor, MatStepperModule, MatIconModule],
+  imports: [NgFor],
   templateUrl: './progresstracker.component.html',
   styleUrl: './progresstracker.component.css'
 })

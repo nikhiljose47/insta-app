@@ -1,26 +1,35 @@
 <div class="container">
-    <div class="left-section">
-      <h1 class="big-text">Insta App</h1>
+  <div class="row">
+    <!-- Left Section -->
+    <div class="col-md-6 text-center">
+      <h1 class="display-3">Insta App</h1>
+      <!-- Image section -->
+      <!-- <div class="image-container">
+        <img src="/assets/prom1.gif" class="img-fluid" alt="Promo Image" />
+      </div> -->
     </div>
 
-    <div class="right-section">
+    <!-- Right Section -->
+    <div class="col-md-6">
+      <!-- First Card -->
+      <div class="card mb-4" style="cursor: pointer;" (click)="onCardClick()">
+        <div class="card-header">
+          <h5 class="card-title">Make an E-com App</h5>
+        </div>
+        <div class="card-body">
+          <p class="card-text">Click to start building the app</p>
+        </div>
+      </div>
 
-      <mat-card class="card" (click)="onCardClick()">
-        <mat-card-header>
-          <mat-card-title>Make an E-com App</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <p>Click to start building the app</p>
-        </mat-card-content>
-      </mat-card>
-
-      <mat-card class="card">
-        <mat-card-header>
-          <mat-card-title>Make a teaching app</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <p>Click to start building the app</p>
-        </mat-card-content>
-      </mat-card>
+      <!-- Second Card -->
+      <div class="card mb-4">
+        <div class="card-header">
+          <h5 class="card-title">Make a Teaching App</h5>
+        </div>
+        <div class="card-body">
+          <p class="card-text">Click to start building the app</p>
+        </div>
+      </div>
     </div>
   </div>
+</div>

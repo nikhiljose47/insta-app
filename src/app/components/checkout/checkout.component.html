@@ -1,25 +1,20 @@
-<div class="container">
-    <div class="left-side">
-      <!-- Content for the left side -->
-      <img src="assets/phone.webp" alt="Left Side Image" />
+<div class="container min-vh-100">
+  <div class="row">
+    <!-- Left Side with Image -->
+    <div class="col-md-6 d-flex justify-content-center align-items-center">
+      <img src="assets/phone.webp" alt="Left Side Image" class="img-fluid" />
     </div>
-    <div class="right-side">
+
+    <!-- Right Side with Content -->
+    <div class="col-md-6">
       <div *ngIf="!paidFor">
-        <h1>Buy this for — ${{product.price}} OBO</h1>
+        <h1>Buy this for: ${{product.price}}</h1>
         <p>{{product.description}}</p>
-        </div>
-        <div *ngIf="paidFor">
+      </div>
+      <div *ngIf="paidFor">
         <h1>Amount Transferred Successfully</h1>
-        </div>
-        <div #paypal></div>
+      </div>
+      <div #paypal></div>
     </div>
-    <div *ngIf="!paidFor">
-        <h1>Buy this for — ${{product.price}} OBO</h1>
-        <p>{{product.description}}</p>
-        </div>
-        <div *ngIf="paidFor">
-        <h1>Amount Transferred Successfully</h1>
-        </div>
-        <div #paypal></div>
   </div>
-  
+</div>

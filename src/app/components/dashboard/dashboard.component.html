@@ -1,1 +1,96 @@
-<p>dashboard works!</p>
+<div class="container-fluid dashboard-container d-flex min-vh-100">
+    <!-- Sidebar -->
+    <nav class="col-md-3 col-lg-2 d-md-block sidebar bg-light p-3">
+      <h2 class="text-center">Dashboard</h2>
+      <ul class="nav flex-column mt-4">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">
+            <i class="bi bi-person"></i> Personal Info
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="bi bi-gear"></i> Settings
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="bi bi-palette"></i> Theme
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="bi bi-box-seam"></i> Orders
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="bi bi-power"></i> Logout
+          </a>
+        </li>
+      </ul>
+    </nav>
+  
+    <!-- Main Content -->
+    <main class="content col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <h1>Welcome, {{ userName }}</h1>
+  
+      <!-- Personal Information Card -->
+      <div class="card mt-4">
+        <div class="card-header">
+          Personal Information
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Your Details</h5>
+          <p class="card-text">Name: {{ userName }}</p>
+          <p class="card-text">Email: john.doe..example.com</p>
+          <p class="card-text">Phone: +1234567890</p>
+          <a href="#" class="btn btn-primary">Edit Info</a>
+        </div>
+      </div>
+  
+      <!-- Settings Card -->
+      <div class="card mt-4">
+        <div class="card-header">
+          Settings
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Account Settings</h5>
+          <p class="card-text">Change your password, update your profile.</p>
+          <a href="#" class="btn btn-primary">Go to Settings</a>
+        </div>
+      </div>
+  
+      <!-- Theme Card -->
+      <div class="card mt-4">
+        <div class="card-header">
+          Theme
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Choose a Theme</h5>
+          <p class="card-text">Switch between light and dark modes.</p>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="darkModeSwitch">
+            <label class="form-check-label" for="darkModeSwitch">Dark Mode</label>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Orders Card -->
+      <div class="card mt-4">
+        <div class="card-header">
+          Orders
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Your Recent Orders</h5>
+          <ul class="list-group">
+            <li class="list-group-item">Order #1234 - Completed</li>
+            <li class="list-group-item">Order #1235 - In Progress</li>
+            <li class="list-group-item">Order #1236 - Pending</li>
+          </ul>
+          <a href="#" class="btn btn-primary mt-3">View All Orders</a>
+        </div>
+      </div>
+    </main>
+  </div>
+  

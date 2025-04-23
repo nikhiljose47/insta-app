@@ -1,4 +1,5 @@
-<div *ngIf="isLogin; else notLoggedIn">
+<div class="container">
+  <div *ngIf="isLogin; else notLoggedIn">
     <tabset>
       <tab heading="Upcoming">
         <div *ngFor="let order of upcomingOrders">
@@ -28,3 +29,4 @@
     </div>
   </ng-template>
   
+</div>

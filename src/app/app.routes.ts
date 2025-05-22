@@ -6,8 +6,10 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AssistanceComponent } from './components/assistance/assistance.component';
 import { OrdersPageComponent } from './components/orders-page/orders-page.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
 
 export const routes: Routes = [
+    { path: 'welcome', component: WelcomeComponent, pathMatch: 'full'},
     { path: 'home', component: HomeComponent, pathMatch: 'full'},
     { path: 'app-maker', component: AppMakerComponent, pathMatch: 'full'},
     { path: 'app-login', component: LoginComponent, pathMatch: 'full' },
@@ -15,6 +17,6 @@ export const routes: Routes = [
     { path: 'app-dashboard', component: DashboardComponent, pathMatch: 'full'  },
     { path: 'app-assistance', component: AssistanceComponent, pathMatch: 'full'  },
     { path: 'orders-page', component: OrdersPageComponent, pathMatch: 'full'  },
-    { path: '**', redirectTo: '/home' }
+    { path: '**', redirectTo: '/welcome' }
 ];
 

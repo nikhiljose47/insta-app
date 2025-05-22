@@ -1,0 +1,14 @@
+<div class="welcome-page">
+
+    <div class="carousel-container">
+      <div class="carousel-track" [style.transform]="'translateX(-' + currentSlide * 100 + 'vw)'">
+        <img *ngFor="let gif of gifs" [src]="gif" class="carousel-image" />
+      </div>
+    </div>
+  
+    <h1 class="tagline">Build Your Dream App Easily 🚀</h1>
+  
+    <button class="start-button" (click)="startApp()">Start</button>
+  
+  </div>
+  

@@ -1,0 +1,74 @@
+:host {
+    display: block;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  .welcome-page {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(135deg, #74ebd5 0%, #acb6e5 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+  }
+  
+  .carousel-container {
+    width: 100%;
+    height: 70%;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .carousel-track {
+    display: flex;
+    transition: transform 0.8s ease-in-out;
+    height: 100%;
+  }
+  
+  .carousel-image {
+    width: 100vw;
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+  
+  .tagline {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    margin: 10px 0;
+  }
+  
+  .start-button {
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+  }
+  
+  .start-button:hover {
+    transform: scale(1.05);
+  }
+  

@@ -1,0 +1,6 @@
+name = "insta-app"
+compatibility_date = "2025-07-06"
+main = "worker.js"
+
+[site]
+bucket = "./dist/insta-app"  # Your built frontend files

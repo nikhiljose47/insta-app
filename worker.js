@@ -1,3 +1,5 @@
+import html from './dist/cloudflare/browser/index.html';
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -11,6 +13,8 @@ export default {
     }
 
     // Serve index.html for all other routes (Angular SPA routing)
-    return env.ASSETS.fetch(request);
+     return new Response(html, {
+      headers: { "Content-Type": "text/html" }
+    });
   }
 };

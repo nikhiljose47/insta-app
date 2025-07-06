@@ -1,6 +1,11 @@
 export const environment = {
     firebase: {
-        "projectId": "insta-app-1cde6", "appId": "1:982267945096:web:89b970650b7b1a0bbf3f3d", "storageBucket": "insta-app-1cde6.appspot.com", "apiKey": "AIzaSyBkBZJsc-XcEX36i_V74jn500FuEqAHIXg", "authDomain": "insta-app-1cde6.firebaseapp.com", "messagingSenderId": "982267945096"
-    }
+        apiKey: "AIzaSyBLrKa8ZOpig5omH5xedZBR7Y7XMeEkcYY",
+        authDomain: "insta-app-1cde6.firebaseapp.com",
+        projectId: "insta-app-1cde6",
+        storageBucket: "insta-app-1cde6.firebasestorage.app",
+        messagingSenderId: "982267945096",
+        appId: "1:982267945096:web:5fcfe763daebb5aabf3f3d"
 
+    }
 }

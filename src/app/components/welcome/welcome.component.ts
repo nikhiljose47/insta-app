@@ -38,5 +38,6 @@ export class WelcomeComponent implements OnInit, OnDestroy {
   startApp() {
     // Navigate to next page
     console.log('Start button clicked');
+    
   }
 }

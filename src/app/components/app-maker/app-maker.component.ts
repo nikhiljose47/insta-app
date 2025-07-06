@@ -6,11 +6,12 @@ import { Router, RouterOutlet } from '@angular/router';
 import { AppMakerUnitComponent } from '../app-maker-unit/app-maker-unit.component';
 import { AppDataModal } from '../../modals/app-data.modal';
 import { FirebaseDataService } from '../../services/firebase-data.service';
+import { StageViewerComponent } from '../stage-viewer/stage-viewer.component';
 
 @Component({
   selector: 'app-maker',
   standalone: true,
-  imports: [ProgresstrackerComponent, TempComponent, NgSwitch, NgSwitchCase, RouterOutlet, AppMakerUnitComponent],
+  imports: [ProgresstrackerComponent, TempComponent, NgSwitch, NgSwitchCase, RouterOutlet, AppMakerUnitComponent, StageViewerComponent  ],
   templateUrl: './app-maker.component.html',
   styleUrl: './app-maker.component.css'
 })

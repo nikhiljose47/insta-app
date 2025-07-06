@@ -1,20 +1,110 @@
-<div class="container min-vh-100">
-  <div class="row">
-    <!-- Left Side with Image -->
-    <div class="col-md-6 d-flex justify-content-center align-items-center">
-      <img src="assets/phone.webp" alt="Left Side Image" class="img-fluid" />
+<div class="payment-container">
+  <div class="payment-header">
+    <h1>Checkout</h1>
+    <div class="progress-steps">
+      <span class="step completed">Cart</span>
+      <span class="step completed">Delivery</span>
+      <span class="step active">Payment</span>
+      <span class="step">Confirmation</span>
+    </div>
+  </div>
+
+  <div class="payment-content">
+    <div class="payment-main">
+      <section class="delivery-address">
+        <h2>Delivery address</h2>
+        <div class="address-card">
+          <p>{{ deliveryAddress.name }}</p>
+          <p>{{ deliveryAddress.street }}</p>
+          <p>{{ deliveryAddress.city }}, {{ deliveryAddress.state }} {{ deliveryAddress.zip }}</p>
+          <p>{{ deliveryAddress.country }}</p>
+          <button class="change-btn">Change</button>
+        </div>
+      </section>
+
+      <section class="payment-method">
+        <h2>Payment method</h2>
+        <div class="payment-options">
+          @for (method of paymentMethods; track method.id) {
+            <div class="payment-option" 
+                 [class.selected]="selectedPaymentMethod() === method.id"
+                 (click)="selectPaymentMethod(method.id)">
+              <span class="material-icons">{{ method.icon }}</span>
+              <span>{{ method.name }}</span>
+            </div>
+          }
+        </div>
+
+        @if (showAddCardForm()) {
+          <div class="card-form">
+            <div class="form-group">
+              <label for="cardNumber">Card number</label>
+              <input type="text" id="cardNumber" 
+                     [(ngModel)]="cardNumber" 
+                     (input)="formatCardNumber($event)"
+                     placeholder="1234 5678 9012 3456" 
+                     maxlength="19">
+            </div>
+            
+            <div class="form-group">
+              <label for="cardName">Name on card</label>
+              <input type="text" id="cardName" [(ngModel)]="cardName" placeholder="John Doe">
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="expiryDate">Expiry date</label>
+                <input type="text" id="expiryDate" [(ngModel)]="expiryDate" placeholder="MM/YY">
+              </div>
+              
+              <div class="form-group">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" [(ngModel)]="cvv" placeholder="123" maxlength="4">
+              </div>
+            </div>
+            
+            <div class="form-group checkbox">
+              <input type="checkbox" id="saveCard" [(ngModel)]="saveCard">
+              <label for="saveCard">Save this card for future purchases</label>
+            </div>
+          </div>
+        }
+      </section>
+
+      <button class="place-order-btn" (click)="submitPayment()" [disabled]="isProcessing()">
+        @if (isProcessing()) {
+          <span class="spinner"></span> Processing...
+        } @else {
+          Place your order
+        }
+      </button>
     </div>
 
-    <!-- Right Side with Content -->
-    <div class="col-md-6">
-      <div *ngIf="!paidFor">
-        <h1>Buy this for: ${{product.price}}</h1>
-        <p>{{product.description}}</p>
+    <div class="order-summary">
+      <h2>Order Summary</h2>
+      <div class="summary-item">
+        <span>Items ({{ orderSummary.items }}):</span>
+        <span>${{ orderSummary.subtotal.toFixed(2) }}</span>
       </div>
-      <div *ngIf="paidFor">
-        <h1>Amount Transferred Successfully</h1>
+      <div class="summary-item">
+        <span>Shipping:</span>
+        <span>${{ orderSummary.shipping.toFixed(2) }}</span>
       </div>
+      <div class="summary-item">
+        <span>Tax:</span>
+        <span>${{ orderSummary.tax.toFixed(2) }}</span>
+      </div>
+      @if (orderSummary.discount) {
+        <div class="summary-item discount">
+          <span>Discount:</span>
+          <span>-${{ (-orderSummary.discount).toFixed(2) }}</span>
+        </div>
+      }
       <div #paypal></div>
+      <div class="summary-total">
+        <span>Order Total:</span>
+        <span>${{ orderSummary.total.toFixed(2) }}</span>
+      </div>
     </div>
   </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component, AfterViewInit} from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { TopBarComponent } from './components/shared/topbar/topbar.component';
 import { HomeComponent } from './components/home/home.component';
@@ -13,6 +13,15 @@ import { StoreModule } from '@ngrx/store';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   title = 'insta_app';
+
+  ngAfterViewInit() {
+    const loader = document.getElementById('global-loader');
+    if (loader) {
+    setTimeout(() => {
+      loader.style.display = 'none';
+    }, 3000); //3 seconds
+  }
+ }
 }

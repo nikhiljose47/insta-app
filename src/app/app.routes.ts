@@ -7,6 +7,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AssistanceComponent } from './components/assistance/assistance.component';
 import { OrdersPageComponent } from './components/orders-page/orders-page.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
+import { AuthGuard } from './services/auth.guard';
 
 export const routes: Routes = [
     { path: 'welcome', component: WelcomeComponent, pathMatch: 'full'},
@@ -14,9 +15,9 @@ export const routes: Routes = [
     { path: 'app-maker', component: AppMakerComponent, pathMatch: 'full'},
     { path: 'app-login', component: LoginComponent, pathMatch: 'full' },
     { path: 'app-checkout', component: CheckoutComponent, pathMatch: 'full'   },
-    { path: 'app-dashboard', component: DashboardComponent, pathMatch: 'full'  },
+    { path: 'app-dashboard', component: DashboardComponent, pathMatch: 'full' , canActivate: [AuthGuard] },
     { path: 'app-assistance', component: AssistanceComponent, pathMatch: 'full'  },
-    { path: 'orders-page', component: OrdersPageComponent, pathMatch: 'full'  },
-    { path: '**', redirectTo: '/welcome' }
+    { path: 'orders-page', component: OrdersPageComponent, pathMatch: 'full' , canActivate: [AuthGuard] },
+    { path: '**', redirectTo: '/home' }
 ];
 

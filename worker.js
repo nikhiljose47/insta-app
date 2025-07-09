@@ -1,4 +1,4 @@
-import html from './dist/cloudflare/browser/index.html';
+import html from './dist/insta-app/browser/index.html';
 
 export default {
   async fetch(request, env) {

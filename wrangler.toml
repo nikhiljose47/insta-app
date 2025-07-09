@@ -3,4 +3,4 @@ compatibility_date = "2025-07-06"
 main = "worker.js"
 
 [site]
-bucket = "./dist/cloudflare/browser"  # Your built frontend files
+bucket = "./dist/insta-app/browser"  # Your built frontend files

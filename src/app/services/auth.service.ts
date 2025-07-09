@@ -7,7 +7,9 @@ import { SharedPreferenceService } from './shared-preference.service';
   providedIn: 'root'
 })
 export class AuthService {
+  private isAuthenticated = false;
   constructor(private firebaseAuth: Auth, private sharedPref: SharedPreferenceService) { }
+  
 
    register(email: string, username: string, password: string): Observable<void>{
     const promise = createUserWithEmailAndPassword(this.firebaseAuth, email, password).then((response)=> updateProfile(response.user, {displayName: username}));
@@ -25,6 +27,7 @@ export class AuthService {
     const promise = signInWithPopup(this.firebaseAuth, new GoogleAuthProvider()).then((result) => {
       // This gives you a Google Access Token. You can use it to access the Google API.
       const credential = GoogleAuthProvider.credentialFromResult(result);
+          this.isAuthenticated = true;
       const token = credential?.accessToken;
       // The signed-in user info.
       const user = result.user;
@@ -49,10 +52,15 @@ export class AuthService {
 
    signOut(){
     signOut(this.firebaseAuth).then(() => {
+          this.isAuthenticated = false;
       // Sign-out successful.
     }).catch((error) => {
       
       // An error happened.
     });
    }
+
+    isLoggedIn(): boolean {
+    return this.isAuthenticated;
+  }
 }

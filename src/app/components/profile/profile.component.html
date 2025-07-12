@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<div *ngIf="!isLoggedIn; else elseblock">
+ <app-login></app-login>
+</div>
+
+<ng-template #elseblock>
+
+
+<div class="profile-wrapper">
+  <h2 class="page-title">My Profile</h2>
+
+  <div class="tab-buttons">
+    <button (click)="setTab('details')" [class.active]="activeTab === 'details'">Details</button>
+    <button (click)="setTab('payments')" [class.active]="activeTab === 'payments'">Payment Methods</button>
+    <button (click)="setTab('orders')" [class.active]="activeTab === 'orders'">Orders</button>
+  </div>
+
+  <div class="tab-content">
+    <section *ngIf="activeTab === 'details'">
+      <h3>Profile Details</h3>
+      <p><strong>Name:</strong> Nikhil J</p>
+      <p><strong>Email:</strong> nikhil&#64;example.com</p>
+    </section>
+
+    <section *ngIf="activeTab === 'payments'">
+      <h3>Payment Methods</h3>
+      <ul>
+        <li>Visa ending in 1234</li>
+        <li>UPI: nikhil&#64;okaxis</li>
+      </ul>
+      
+    </section>
+
+    <section *ngIf="activeTab === 'orders'">
+      <h3>Orders</h3>
+      <ul>
+        <li>Order #124 - ₹499 - Delivered</li>
+        <li>Order #122 - ₹1,200 - Shipped</li>
+      </ul>
+      <orders-page></orders-page>
+    </section>
+  </div>
+</div>
+
+</ng-template>

@@ -5,9 +5,10 @@ import { LoginComponent } from './components/login/login.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AssistanceComponent } from './components/assistance/assistance.component';
-import { OrdersPageComponent } from './components/orders-page/orders-page.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { AuthGuard } from './services/auth.guard';
+import { ProfileComponent } from './components/profile/profile.component';
+import { PreviewComponent } from './components/preview/preview.component';
 
 export const routes: Routes = [
     { path: 'welcome', component: WelcomeComponent, pathMatch: 'full'},
@@ -17,7 +18,8 @@ export const routes: Routes = [
     { path: 'app-checkout', component: CheckoutComponent, pathMatch: 'full'   },
     { path: 'app-dashboard', component: DashboardComponent, pathMatch: 'full' , canActivate: [AuthGuard] },
     { path: 'app-assistance', component: AssistanceComponent, pathMatch: 'full'  },
-    { path: 'orders-page', component: OrdersPageComponent, pathMatch: 'full' , canActivate: [AuthGuard] },
+    { path: 'app-profile', component: ProfileComponent, pathMatch: 'full'},
+    { path: 'app-preview', component: PreviewComponent, pathMatch: 'full'},
     { path: '**', redirectTo: '/home' }
 ];
 

@@ -8,12 +8,12 @@ import { FirebaseDataService } from '../../../services/firebase-data.service';
 import { signIn, signOut } from '../../../actions/auth.actions';
 import { selectIsSignedIn } from '../../../selector';
 import { AuthState } from '../../../reducers/auth.reducer';
-
+import { MatIconModule } from '@angular/material/icon';
 
 
 @Component({
   selector: 'topbar-nav',
-  imports: [RouterLink, RouterLinkActive, CommonModule ],
+  imports: [RouterLink, RouterLinkActive, CommonModule, MatIconModule  ],
   standalone: true,
   templateUrl: './topbar.component.html',
   styleUrls: ['./topbar.component.css']

@@ -1,0 +1,91 @@
+{
+  "id": {
+    "meta": "",
+    "data": [
+      {
+        "id": "xyc902",
+        "label": "Teaching App",
+        "stepsCount": 5,
+        "steps": [
+          {
+            "label": "First",
+            "content": [
+              "Title",
+              "Id"
+            ]
+          },
+          {
+            "label": "Second",
+            "content": [
+              "Categories",
+              "sdd"
+            ]
+          },
+          {
+            "label": "Third",
+            "content": [
+              "Name",
+              "sdd"
+            ]
+          },
+          {
+            "label": "Fourth",
+            "content": [
+              "Name",
+              "sdd"
+            ]
+          },
+          {
+            "label": "Fifth",
+            "content": [
+              "Name",
+              "sdd"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "xyc903",
+        "label": "Teaching App",
+        "stepsCount": 5,
+        "steps": [
+          {
+            "label": "First",
+            "content": [
+              "Name",
+              "sdd"
+            ]
+          },
+          {
+            "label": "Second",
+            "content": [
+              "Name",
+              "sdd"
+            ]
+          },
+          {
+            "label": "Third",
+            "content": [
+              "Name",
+              "sdd"
+            ]
+          },
+          {
+            "label": "Fourth",
+            "content": [
+              "Name",
+              "sdd"
+            ]
+          },
+          {
+            "label": "Fifth",
+            "content": [
+              "Name",
+              "sdd"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,39 +1,33 @@
 <div class="container-fluid gradient-container">
   <div class="row min-vh-100">
-    
+
     <!-- Column 1: Stage List -->
     <div class="col-md-3 p-4 column-left">
       <h2>Project Stages</h2>
       <ul class="stage-list">
-        @for (stage of stages; track stage.id) {
-          <li 
-            [class.selected]="isSelected(stage.id)"
-            (click)="selectStage(stage.id)">
-            <span class="stage-number">{{ stage.id }}</span>
-            <span class="stage-title">{{ stage.title }}</span>
-          </li>
+        @for (stage of data.steps; track stage.id) {
+        <li [class.selected]="isSelected(stage.id)" (click)="selectStage(stage.id)">
+          <span class="stage-number">{{ stage.id }}</span>
+          <span class="stage-title">{{ stage.label }}</span>
+        </li>
         }
       </ul>
     </div>
 
-    <!-- Column 2: Stage Details -->
-    <div class="col-md-6 p-4 column-right">
-      @for (stage of stages; track stage.id) {
-        @if (isSelected(stage.id)) {
-          <div class="stage-content" @stageTransition>
-            <h3>{{ stage.title }}</h3>
-            <p>{{ stage.content }}</p>
-            
-            <div class="navigation-buttons">
-              <button (click)="prevStage()" [disabled]="currentStage() === 1">Back</button>
-              <button (click)="nextStage()" [disabled]="currentStage() === stages.length">Next</button>
-            </div>
-          </div>
-        }
-      }
-    </div>
+<div class="col-md-6 p-4 column-right" *ngIf="data?.steps?.length">
+  <div class="stage-content" [@stageTransition]>
+    <h3>{{ data.steps[currentStageIndex]?.label }}</h3>
+    <p>{{ data.steps[currentStageIndex]?.content[0] }}</p>
 
-        <!-- Left Side with Image -->
+    <div class="navigation-buttons">
+      <button (click)="prevStage()" [disabled]="currentStageIndex === 0">Back</button>
+      <button (click)="nextStage()" [disabled]="currentStageIndex === data.steps.length - 1">Next</button>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Left Side with Image -->
     <div class="col-md-3 p-4 column-extra">
       <img src="assets/phone.webp" alt="Left Side Image" class="img-fluid" />
     </div>

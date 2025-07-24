@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { JsonReaderService, StageData } from '../../services/json-reader.service';
 import { Router } from '@angular/router';
-import * as data from '../../../assets/data/steps-data.json';
+import * as jsonData from '../../../assets/data/steps-data.json';
 
 @Component({
   selector: 'stage-viewer',
@@ -33,35 +33,42 @@ export class StageViewerComponent {
     { id: 5, title: 'Deployment', content: 'Launching the product to production environment.' }
   ];
   data?: any;
-  parsed?: StageData;
 
   constructor(private jsonReader: JsonReaderService, private router: Router) {}
 
   currentStage = signal(1);
+  currentStageIndex = 0;
 
     ngOnInit() {
-    this.data = data;
-    this.parsed = JSON.parse(this.data) as StageData
-    console.log(this.parsed.label);
+    this.data = jsonData.id.data[0];
+    console.log('nikni; init')
+    console.log(this.data);
   }
 
   selectStage(stageId: number) {
     this.currentStage.set(stageId);
   }
 
+  trackByStageId(index: number, stage: any): string {
+  return stage.id;
+}
+
   nextStage() {
     if (this.currentStage() < this.stages.length) {
-      this.currentStage.update(val => val + 1);
-    }
-    else if(this.currentStage() == this.stages.length){
+      if(this.currentStageIndex == (this.stages.length-2)){
       this.router.navigate(['/app-preview']);
-
+       return;
+      }
+      this.currentStage.update(val => val + 1);
+      this.currentStageIndex++;
     }
+   //  this.router.navigate(['/app-preview']);
   }
 
   prevStage() {
     if (this.currentStage() > 1) {
       this.currentStage.update(val => val - 1);
+      this.currentStageIndex--;
     }
   }
 

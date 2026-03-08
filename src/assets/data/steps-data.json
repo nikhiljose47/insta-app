@@ -8,35 +8,36 @@
         "stepsCount": 5,
         "steps": [
           {
-            "label": "First",
+            "label": "Theme",
+            "stepId": "01",
             "content": [
               "Title",
               "Id"
             ]
           },
           {
-            "label": "Second",
+            "label": "Structure",
             "content": [
               "Categories",
               "sdd"
             ]
           },
           {
-            "label": "Third",
+            "label": "Sections",
             "content": [
               "Name",
               "sdd"
             ]
           },
           {
-            "label": "Fourth",
+            "label": "Navigation",
             "content": [
               "Name",
               "sdd"
             ]
           },
           {
-            "label": "Fifth",
+            "label": "Payment",
             "content": [
               "Name",
               "sdd"

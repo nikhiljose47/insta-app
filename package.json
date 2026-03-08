@@ -23,13 +23,14 @@
     "@angular/router": "^18.2.13",
     "@ngrx/store": "^18.0.2",
     "@popperjs/core": "^2.11.8",
-    "bootstrap": "^5.3.3",
+    "bootstrap": "^5.3.8",
     "firebase": "^10.14.1",
     "ngx-bootstrap": "^18.0.2",
     "ngx-typeahead": "^18.0.0",
     "rxjs": "~7.8.0",
     "swiper": "^11.1.9",
     "tslib": "^2.3.0",
+    "wrangler": "^4.26.0",
     "zone.js": "~0.14.10"
   },
   "devDependencies": {

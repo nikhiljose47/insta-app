@@ -1,0 +1,57 @@
+﻿[33mΓ¥»[39m Building...
+[32mΓ£ö[39m Building...
+Application bundle generation failed. [3.571 seconds]
+
+node.exe : [1m[31m[31mX 
+[41;31m[[41;97mERROR[41;
+31m][0m [1mNG7: This 
+comparison appears to be 
+unintentional because the 
+types '2' and '3' have no 
+overlap.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+At C:\Users\nikhil\AppData\
+Roaming\npm\ng.ps1:24 
+char:5
++     & "node$exe"  "$based
+ir/node_modules/@angular/cl
+i/bin/ng.js" $arg ...
++     ~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
+    + CategoryInfo         
+     : NotSpecified: ([1  
+  m[31m[31mX...r-compi   
+ ler][0m:String) [], R    
+emoteException
+    + FullyQualifiedErrorI 
+   d : NativeCommandError
+ 
+
+    src/app/components/app-
+maker-unit/app-maker-unit.c
+omponent.html:58:14:
+[37m      58 Γöé   <div 
+*ngIf="[32massemblerStep 
+=== 3[37m">
+         Γò╡               
+[32m~~~~~~~~~~~~~~~~~~~[0
+m
+
+  Error occurs in the 
+template of component 
+AppMakerUnitComponent.
+
+    src/app/components/app-
+maker-unit/app-maker-unit.c
+omponent.ts:14:15:
+[37m      14 Γöé   
+templateUrl: [32m'./app-ma
+ker-unit.component.html'[3
+7m,
+         Γò╡               
+ [32m~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~[0m
+
+[39m[22m

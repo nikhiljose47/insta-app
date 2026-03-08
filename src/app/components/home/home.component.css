@@ -1,57 +1,120 @@
-/* Container adjustments for padding and centering */
-.container {
-  margin-top: 100px;
-  display: flex;
-  flex-direction: column;
+/* Animated Background Wrappers */
+.home-wrapper {
+  background: linear-gradient(-45deg, #0f172a, #1e1b4b, #312e81, #1e3a8a);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
   min-height: 100vh;
+  display: flex;
+  align-items: center;
+  color: #fff;
 }
 
-/* Center text in left section */
-.left-section h1 {
-  font-size: 3rem; /* Equivalent to big-text styling */
-  font-weight: bold;
-  color: #333; /* Adjust as per your color scheme */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-/* Image styling */
-.image-container img {
-  max-width: 100%;
-  height: auto;
+.hero-container {
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
-/* Right section card styling */
-.card {
-  border: 1px solid #ddd;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  transition: transform 0.2s ease-in-out;
+/* Gradient Text for Title */
+.text-gradient {
+  background: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-white-50 {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05); /* Very subtle white */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   cursor: pointer;
+  overflow: hidden;
 }
 
-.card:hover {
-  transform: translateY(-5px); /* Lift card on hover */
+.glass-card:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.1); /* Slightly brighter on hover */
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(129, 140, 248, 0.3);
 }
 
-.card-header {
-  background-color: #f8f9fa;
-  border-bottom: 1px solid #ddd;
+.glass-card .card-body {
+  padding: 1.5rem;
 }
 
-.card-title {
+.glass-card .card-title {
+  color: #f8fafc;
+}
+
+.glass-card .text-muted {
+  color: #94a3b8 !important;
+}
+
+.icon-box {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.arrow-icon {
   font-size: 1.5rem;
-  margin-bottom: 0;
+  color: rgba(255, 255, 255, 0.5);
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.card-body p {
-  color: #666;
+.glass-card:hover .arrow-icon {
+  transform: translateX(8px);
+  color: #fff;
 }
 
-/* Additional responsive styling (optional) */
-@media (max-width: 768px) {
-  .left-section h1 {
-    font-size: 2.5rem; /* Slightly reduce heading size on smaller screens */
+/* Entrance Animations */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-  .right-section .card {
-    margin-bottom: 20px;
+/* Staggered Delays for Animation */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.25s; }
+.delay-3 { animation-delay: 0.4s; }
+.delay-4 { animation-delay: 0.55s; }
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+  .hero-container {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  .display-3 {
+    font-size: 2.5rem;
   }
 }

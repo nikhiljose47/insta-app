@@ -25,6 +25,7 @@ export class AppMakerUnitComponent {
   formData2: Array<string>=[];
   file: any ;
   @Output() data = new EventEmitter<string>();
+  @Input() collectedData: any;
 
   constructor(private fireService: FirebaseDataService){}
 

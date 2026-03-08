@@ -1,44 +1,74 @@
-<div class="container">
-  <div class="row">
-    <!-- Left Section -->
-    <div class="col-md-6 text-center">
-      <h1 class="display-3">Insta App</h1>
-      <!-- Image section -->
-      <!-- <div class="image-container">
-        <img src="/assets/prom1.gif" class="img-fluid" alt="Promo Image" />
-      </div> -->
-    </div>
+<div class="home-wrapper">
+  <div class="container hero-container">
+    <div class="row align-items-center w-100">
 
-    <!-- Right Section -->
-    <div class="col-md-6">
-      <!-- First Card -->
-      <div class="card mb-4" style="cursor: pointer;" (click)="onCardClick()">
-        <div class="card-header">
-          <h5 class="card-title">Make an E-com App</h5>
-        </div>
-        <div class="card-body">
-          <p class="card-text">Click to start building the app</p>
-        </div>
+      <!-- Left Section: Hero Text -->
+      <div class="col-lg-6 text-center text-lg-start mb-5 mb-lg-0 fade-in-up delay-1">
+        <h1 class="display-3 fw-bold text-gradient">Insta App</h1>
+        <p class="lead text-white-50 mt-3 mb-4">
+          Build your app in minutes. No coding required. Beautiful, fast, and ready to launch.
+        </p>
+        <button class="btn btn-primary btn-lg rounded-pill px-4 py-2 shadow-lg" (click)="onCardClick()">
+          Get Started ✨
+        </button>
       </div>
 
-      <!-- Second Card -->
-      <div class="card mb-4">
-        <div class="card-header">
-          <h5 class="card-title">Make a Teaching App</h5>
-        </div>
-        <div class="card-body">
-          <p class="card-text">Click to start building the app</p>
+      <!-- Right Section: Action Cards -->
+      <div class="col-lg-6">
+        <div class="d-flex flex-column gap-4">
+
+          <!-- First Card -->
+          <div class="card glass-card fade-in-up delay-2" (click)="onCardClick()">
+            <div class="card-body d-flex align-items-center">
+              <div class="icon-box bg-primary-subtle text-primary rounded-circle p-3 me-4">
+                <i class="bi bi-cart3 fs-4"></i> <!-- Bootstrap Icon: Cart -->
+                <span style="font-size: 24px;">🛒</span> <!-- Fallback emoji -->
+              </div>
+              <div>
+                <h4 class="card-title fw-bold mb-1">Make an E-com App</h4>
+                <p class="card-text text-muted mb-0">Launch your online store today.</p>
+              </div>
+              <div class="ms-auto">
+                <span class="arrow-icon">→</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Second Card -->
+          <div class="card glass-card fade-in-up delay-3">
+            <div class="card-body d-flex align-items-center">
+              <div class="icon-box bg-success-subtle text-success rounded-circle p-3 me-4">
+                <span style="font-size: 24px;">🎓</span>
+              </div>
+              <div>
+                <h4 class="card-title fw-bold mb-1">Make a Teaching App</h4>
+                <p class="card-text text-muted mb-0">Share your knowledge with the world.</p>
+              </div>
+              <div class="ms-auto">
+                <span class="arrow-icon">→</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Third Card -->
+          <div class="card glass-card fade-in-up delay-4">
+            <div class="card-body d-flex align-items-center">
+              <div class="icon-box bg-warning-subtle text-warning rounded-circle p-3 me-4">
+                <span style="font-size: 24px;">📅</span>
+              </div>
+              <div>
+                <h4 class="card-title fw-bold mb-1">Make an Attendance App</h4>
+                <p class="card-text text-muted mb-0">Track participation effortlessly.</p>
+              </div>
+              <div class="ms-auto">
+                <span class="arrow-icon">→</span>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
-      <!-- Third Card -->
-      <div class="card mb-4">
-        <div class="card-header">
-          <h5 class="card-title">Make an attendence app</h5>
-        </div>
-        <div class="card-body">
-          <p class="card-text">Click to start building the app</p>
-        </div>
-      </div>
+
     </div>
   </div>
 </div>

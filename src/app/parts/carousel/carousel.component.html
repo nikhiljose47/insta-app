@@ -1,0 +1,33 @@
+<!-- carousel.component.html -->
+<div class="carousel-container">
+  <!-- Left Button -->
+  <button class="nav-btn left" (click)="prev()" [disabled]="currentIndex === 0">
+    ‹
+  </button>
+
+  <!-- Carousel Items -->
+  <div class="carousel-wrapper">
+    <div
+      class="carousel-track"
+      [style.transform]="'translateX(' + (-currentIndex * 220) + 'px)'"
+    >
+      <div
+        *ngFor="let item of items; let i = index"
+        class="carousel-item"
+        [class.active]="i === currentIndex"
+        [style.background]="item.color"
+      >
+        {{ item.title }}
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Button -->
+  <button
+    class="nav-btn right"
+    (click)="next()"
+    [disabled]="currentIndex === items.length - 1"
+  >
+    ›
+  </button>
+</div>

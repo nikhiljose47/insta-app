@@ -1,90 +1,87 @@
 <div *ngIf="assemblerStep === 1">
-    <div class="container">
-      <h2>App Description</h2>
-      <form (ngSubmit)="onSignupSubmit(signupForm)" #signupForm="ngForm">
-        <!-- Title Field -->
-        <div class="form-group">
-          <label for="title">Title</label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            class="form-control"
-            placeholder="Enter your title"
-            ngModel
-            required
-          />
+  <div class="container">
+    <h2>App Description</h2>
+    <form (ngSubmit)="onSignupSubmit(signupForm)" #signupForm="ngForm">
+      <!-- Title Field -->
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" class="form-control" placeholder="Enter your title" ngModel
+          required />
+      </div>
+
+      <!-- Category Field -->
+      <div class="form-group">
+        <label for="category">Category</label>
+        <select id="category" name="category" class="form-control" ngModel required>
+          <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+        </select>
+      </div>
+
+      <!-- File Upload Field -->
+      <div class="form-group">
+        <label for="logo">Upload Logo</label>
+        <input type="file" id="logo" class="form-control" (change)="onFileSelected($event)" required />
+      </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="!signupForm.valid">Submit</button>
+    </form>
+  </div>
+</div>
+
+<div *ngIf="assemblerStep === 2">
+  <div class="container">
+    <h2>Add Category</h2>
+    <form (ngSubmit)="onCategorySubmit(categoryForm)" #categoryForm="ngForm">
+      <!-- Category Name Field -->
+      <div class="form-group">
+        <label for="categoryName">Category Name</label>
+        <input type="text" id="categoryName" name="categoryName" class="form-control" placeholder="Enter category name"
+          ngModel required />
+      </div>
+
+      <!-- Subcategories Field -->
+      <div class="form-group">
+        <label for="subcategories">Subcategories</label>
+        <div *ngFor="let subcategory of subcategories; let i = index">
+          <input type="text" class="form-control" placeholder="Enter subcategory" [(ngModel)]="subcategories[i]"
+            name="subcategory{{ i }}" required *ngIf="i < maxSubcategories" />
         </div>
-  
-        <!-- Category Field -->
-        <div class="form-group">
-          <label for="category">Category</label>
-          <select id="category" name="category" class="form-control" ngModel required>
-            <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
-          </select>
-        </div>
-  
-        <!-- File Upload Field -->
-        <div class="form-group">
-          <label for="logo">Upload Logo</label>
-          <input
-            type="file"
-            id="logo"
-            class="form-control"
-            (change)="onFileSelected($event)"
-            required
-          />
-        </div>
-  
-        <button type="submit" class="btn btn-primary" [disabled]="!signupForm.valid">Submit</button>
-      </form>
+        <button type="button" class="btn btn-secondary" (click)="addSubcategory()"
+          [disabled]="subcategories.length >= maxSubcategories">
+          Add Subcategory
+        </button>
+      </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="!categoryForm.valid">Submit</button>
+    </form>
+  </div>
+</div>
+<div *ngIf="assemblerStep === 3">
+  <div class="container text-center">
+    <h2>App Simulation Preview</h2>
+    <p class="lead">Here's a preview of the structured data for your new app:</p>
+
+    <div class="card mt-4 text-start">
+      <div class="card-body">
+        <h5 class="card-title text-primary"><i class="bi bi-phone"></i> {{ collectedData && collectedData[0] ?
+          collectedData[0] : 'App Title' }}</h5>
+        <h6 class="card-subtitle mb-3 text-muted">Category: {{ collectedData && collectedData[1] ? collectedData[1] :
+          'App Category' }}</h6>
+        <hr />
+        <p class="card-text"><strong>Section:</strong> <span class="badge bg-secondary">{{ collectedData &&
+            collectedData[2] ? collectedData[2] : 'Section Name' }}</span></p>
+        <p class="card-text"><strong>Subcategories:</strong></p>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"
+            *ngFor="let item of (collectedData && collectedData[3] ? collectedData[3].split(',') : ['Item 1', 'Item 2'])">
+            {{ item.trim() }}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="alert alert-info mt-4" role="alert">
+      If everything looks good, click <strong>Next</strong> to proceed to PaymentCheckout!
     </div>
   </div>
-  
-  <div *ngIf="assemblerStep === 2">
-    <div class="container">
-      <h2>Add Category</h2>
-      <form (ngSubmit)="onCategorySubmit(categoryForm)" #categoryForm="ngForm">
-        <!-- Category Name Field -->
-        <div class="form-group">
-          <label for="categoryName">Category Name</label>
-          <input
-            type="text"
-            id="categoryName"
-            name="categoryName"
-            class="form-control"
-            placeholder="Enter category name"
-            ngModel
-            required
-          />
-        </div>
-  
-        <!-- Subcategories Field -->
-        <div class="form-group">
-          <label for="subcategories">Subcategories</label>
-          <div *ngFor="let subcategory of subcategories; let i = index">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Enter subcategory"
-              [(ngModel)]="subcategories[i]"
-              name="subcategory{{ i }}"
-              required
-              *ngIf="i < maxSubcategories"
-            />
-          </div>
-          <button
-            type="button"
-            class="btn btn-secondary"
-            (click)="addSubcategory()"
-            [disabled]="subcategories.length >= maxSubcategories"
-          >
-            Add Subcategory
-          </button>
-        </div>
-  
-        <button type="submit" class="btn btn-primary" [disabled]="!categoryForm.valid">Submit</button>
-      </form>
-    </div>
-  </div>
-  
+</div>

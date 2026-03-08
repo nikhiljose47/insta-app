@@ -9,6 +9,8 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { AuthGuard } from './services/auth.guard';
 import { ProfileComponent } from './components/profile/profile.component';
 import { PreviewComponent } from './components/preview/preview.component';
+import { LoaderComponent } from './parts/loader/loader.component';
+import { CarouselComponent } from './parts/carousel/carousel.component';
 
 export const routes: Routes = [
     { path: 'welcome', component: WelcomeComponent, pathMatch: 'full'},

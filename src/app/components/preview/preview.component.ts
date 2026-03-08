@@ -14,7 +14,7 @@ export class PreviewComponent {
   imageUrl: string;
 
   constructor(private router: Router) {
-    this.title = 'Explore the Learning Path';
+    this.title = 'Awesome ! Take a look at the app just created..';
     this.description = 'Step into a structured learning experience designed to guide you through well-defined phases of knowledge, with visuals and interactive steps.';
     this.imageUrl = 'https://via.placeholder.com/400x300?text=Preview+Image'; // Replace with actual asset if needed
   }
